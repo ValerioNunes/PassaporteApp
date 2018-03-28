@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
-import { HomePage } from '../home/home';
 
+import { MenuPage } from '../menu/menu';
 /**
  * Generated class for the LoginPage page.
  *
@@ -30,8 +30,8 @@ export class LoginPage {
     this.restProvider.getEmpregado(this.registerCredentials.matricula).then(allowed => {
       if (allowed !== false) {
         this.loading.dismiss();
-        this.nav.push( HomePage ,{Empregado : allowed});
-        
+         // this.nav.push( MenuPage ,{PassaporteView : allowed});
+        this.nav.setRoot(MenuPage ,{PassaporteView : allowed});
       } else {
 
         this.showError("Matricula Inválida!");

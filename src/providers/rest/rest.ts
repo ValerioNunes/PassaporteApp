@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 /*
   Generated class for the RestProvider provider.
-
+  
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
@@ -18,7 +18,7 @@ export class RestProvider {
 
   getEmpregado(matricula) {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/empregadoes/' + matricula).subscribe(data => {
+      this.http.get(this.apiUrl + '/Passaporte/' + matricula).subscribe(data => {
         //console.log(data);
         resolve(data);
       }, err => {

@@ -1,10 +1,14 @@
+
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Passaporte S&S
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title>Passaporte S&S</ion-title>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content padding> 
 
@@ -16,26 +20,17 @@
             <ion-item text-wrap> <h3>Gerência: {{Empregado.Gerencia}}</h3></ion-item> 
     </ion-list>
 
+    
     <ion-list>
-        <ion-label text-center padding-top ><h2>Saúde:</h2></ion-label>
-            <ion-item> 
-              <h3>Exames médicos(ASO) </h3>  <div item-right><h3>Validade: 12/06/2019</h3></div>
-            </ion-item>  
-        </ion-list>
-    <ion-list>
-
-    <ion-label text-center padding-top><h2>RAC</h2></ion-label>
-        <ion-item> 
-          <h3>RAC 01 </h3>  <div item-right><h3>Validade: 12/02/2019</h3></div>
-        </ion-item>  
+      <ion-label text-center padding-top><h2>RAC</h2></ion-label>
+      <button ion-item *ngFor="let item of HistRac"  #slidingItem>
+        <ion-item>
+          <h4 text-wrap text-uppercase> {{item.TreinamentoRac.Nome}}</h4>
+          <h4 text-wrap text-uppercase> Realizado: {{item.DataConclusao | date:' dd/MM/yyyy'}}</h4>
+        </ion-item>
+      </button>
     </ion-list>
 
-
-    <ion-list>
-        <ion-label text-center padding-top><h2>OUTROS TREINAMENTOS:</h2></ion-label>
-            <ion-item> 
-              <h3>OP. Ponte Rolante</h3>  <div item-right><h3>Validade: 12/06/2019</h3></div>
-            </ion-item>  
-        </ion-list>
+   
 
 </ion-content>
