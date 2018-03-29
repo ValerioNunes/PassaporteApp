@@ -6,7 +6,7 @@
         <ion-icon name="menu"></ion-icon>
       </button>
       </ion-buttons>
-      <ion-title>Passaporte S&S</ion-title>
+      <ion-title>Meu Passaporte</ion-title>
     </ion-navbar>
   </ion-header>
 
@@ -24,9 +24,13 @@
     <ion-list>
       <ion-label text-center padding-top><h2>RAC</h2></ion-label>
       <button ion-item *ngFor="let item of HistRac"  #slidingItem>
-        <ion-item>
-          <h4 text-wrap text-uppercase> {{item.TreinamentoRac.Nome}}</h4>
-          <h4 text-wrap text-uppercase> Realizado: {{item.DataConclusao | date:' dd/MM/yyyy'}}</h4>
+        <ion-item >
+          <ion-icon class="iconForm"  *ngIf="getCor(item) == true" item-start name="ios-alarm" color="danger"></ion-icon>
+          <ion-icon class="iconForm" *ngIf="getCor(item) == false" item-start name="thumbs-up" color="primary"></ion-icon>
+
+          <h4 text-wrap text-uppercase > {{item.TreinamentoRac.Nome}}</h4>
+          <h4 text-wrap text-uppercase> Validade : {{ getValidade(item) | date:' dd/MM/yyyy'}}</h4>
+          <h4 text-wrap text-uppercase>  {{getVaiExpirarEm(item)}}</h4>
         </ion-item>
       </button>
     </ion-list>

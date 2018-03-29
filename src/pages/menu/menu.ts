@@ -1,6 +1,7 @@
 import { Component ,ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { HomePage } from './../home/home'
+import { ConfigPage } from './../config/config'
 /**
  * Generated class for the MenuPage page.
  *
@@ -25,16 +26,18 @@ export class MenuPage {
 
   rootPage:any =  HomePage;
   @ViewChild(Nav) nav: Nav;
-
+  Frase = '';
  
-  pages: PageInterface[] = [{ title: 'Tab 1', pageName: 'HomePage',  icon: 'home' }];
+  pages: PageInterface[] = [{ title: 'Meu Passaporte', pageName: 'HomePage', tabComponent: HomePage ,  icon: 'contact' },
+                            { title: 'Config', pageName: 'ConfigPage', tabComponent: ConfigPage ,  icon: 'settings' }];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.Frase = this.navParams.get("PassaporteView").Frase;
+  }
 
   openPage(page: PageInterface) {
 
-        console.log(page);
-        //this.nav.setRoot(page.pageName,  this.navParams);
+        this.nav.setRoot( page.tabComponent,  this.navParams);
   }
  
   ionViewDidLoad() {
@@ -49,14 +52,14 @@ export class MenuPage {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
         return 'primary';
       }
-      return;
+      return 'green';
     }
  
     // Fallback needed when there is no active childnav (tabs not active)
     if (this.nav.getActive() && this.nav.getActive().name === page.pageName) {
       return 'primary';
     }
-    return;
+    return 'green' ;
   }
  
 }

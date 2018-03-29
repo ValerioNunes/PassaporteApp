@@ -1,3 +1,18 @@
 page-menu {
+    .custom-avatar {
+        height: 30vw;
+        width: 30vw;
+        border: 1px solid #fff;
+        
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
+      ion-header{
+        background-color:#007E7A;
+      }
+      .button{
+        background-color:#ffc000;
+      }
 }

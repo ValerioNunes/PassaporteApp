@@ -3,11 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
+import { ConfigPage } from '../pages/config/config';
 import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage,
-    MenuPage
+    MenuPage,
+    ConfigPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage,
-    MenuPage
+    MenuPage,
+    ConfigPage
   ],
   providers: [
     StatusBar,

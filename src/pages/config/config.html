@@ -1,0 +1,37 @@
+<!--
+  Generated template for the ConfigPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title>Config</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-label text-center padding-top><h2>E-Mail e SMS</h2></ion-label>
+          <ion-item  #slidingItem>
+              <ion-label> Alerta de RAC</ion-label>
+              <ion-toggle color="energized" checked="false"></ion-toggle>
+          </ion-item>
+
+          <ion-item  #slidingItem>
+              <ion-label> Alerta de CCR-Online</ion-label>
+              <ion-toggle color="energized"  checked="false"></ion-toggle>
+          </ion-item>
+
+          <ion-item  #slidingItem>
+              <ion-label> Alerta de ASO</ion-label>
+              <ion-toggle color="energized"  checked="false"></ion-toggle>
+          </ion-item>
+      </ion-list>
+</ion-content>
