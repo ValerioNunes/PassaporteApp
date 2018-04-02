@@ -10,6 +10,13 @@ import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { ConfigPage } from '../pages/config/config';
 import { RestProvider } from '../providers/rest/rest';
+import { NgCalendarModule  } from 'ionic2-calendar';
+import {DssPage} from '../pages/dss/dss';
+import { EventmodalPage} from '../pages/eventmodal/eventmodal';
+import { QrPage} from '../pages/qr/qr';
+
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -17,11 +24,16 @@ import { RestProvider } from '../providers/rest/rest';
     HomePage,
     LoginPage,
     MenuPage,
-    ConfigPage
+    ConfigPage,
+    DssPage,
+    EventmodalPage,
+    QrPage
   ],
   imports: [
+    NgCalendarModule,
     BrowserModule,
     HttpClientModule,
+    NgxQRCodeModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -30,13 +42,17 @@ import { RestProvider } from '../providers/rest/rest';
     HomePage,
     LoginPage,
     MenuPage,
-    ConfigPage
+    ConfigPage,
+    DssPage,
+    EventmodalPage,
+    QrPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    RestProvider,
+    BarcodeScanner
   ],  
 })
 export class AppModule {}

@@ -7,7 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>DSS</ion-title>
+    <ion-title>Agenda SSMA</ion-title>
+    <ion-buttons start>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +20,21 @@
 
 <ion-content padding>
 
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addEvent()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-buttons>
+    
+<div class= "calendar">
+<calendar   [eventSource]="eventSource"
+          [calendarMode]="calendar.mode"
+          [currentDate]="calendar.currentDate"
+          (onEventSelected)="onEventSelected($event)"
+          (onTitleChanged)="onViewTitleChanged($event)"
+          (onTimeSelected)="onTimeSelected($event)"
+          step="30"
+          class="calendar">
+      </calendar>
+    </div>
 </ion-content>

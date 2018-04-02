@@ -2,6 +2,8 @@ import { Component ,ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { HomePage } from './../home/home'
 import { ConfigPage } from './../config/config'
+import { DssPage } from './../dss/dss'
+import { QrPage} from '../../pages/qr/qr';
 /**
  * Generated class for the MenuPage page.
  *
@@ -29,8 +31,11 @@ export class MenuPage {
   Frase = '';
  
   pages: PageInterface[] = [{ title: 'Meu Passaporte', pageName: 'HomePage', tabComponent: HomePage ,  icon: 'contact' },
-                            { title: 'Config', pageName: 'ConfigPage', tabComponent: ConfigPage ,  icon: 'settings' }];
-
+                            { title: 'Agenda SSMA', pageName: 'DssPage', tabComponent: DssPage ,  icon: 'md-calendar' },
+                            { title: 'QR', pageName: 'QrPage', tabComponent: QrPage ,  icon: 'md-barcode' },
+                            { title: 'Config', pageName: 'ConfigPage', tabComponent: ConfigPage ,  icon: 'settings' },
+                            ];
+                            
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.Frase = this.navParams.get("PassaporteView").Frase;
   }
