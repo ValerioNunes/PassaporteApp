@@ -17,14 +17,14 @@
   <ion-content>
     <ion-list>
       <button class="button" ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          {{ p.title }}
+          <ion-icon class='textHeader' item-start  [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          <h2>{{ p.title }}</h2>
         </button>
     </ion-list>
 
-    <ion-fab right bottom>
+    <ion-fab right bottom color = 'primary'>
         <button ion-fab ><ion-icon name="arrow-dropleft"></ion-icon></button>
-        <ion-fab-list side="left">
+          <ion-fab-list side="left">
           <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
           <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
           <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>

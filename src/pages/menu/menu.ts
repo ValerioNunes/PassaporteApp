@@ -29,19 +29,16 @@ export class MenuPage {
   rootPage:any =  HomePage;
   @ViewChild(Nav) nav: Nav;
   Frase = '';
- 
   pages: PageInterface[] = [{ title: 'Meu Passaporte', pageName: 'HomePage', tabComponent: HomePage ,  icon: 'contact' },
-                            { title: 'Agenda SSMA', pageName: 'DssPage', tabComponent: DssPage ,  icon: 'md-calendar' },
-                            { title: 'QR', pageName: 'QrPage', tabComponent: QrPage ,  icon: 'md-barcode' },
+                            { title: 'DSSMA', pageName: 'DssPage', tabComponent: DssPage ,  icon: 'md-calendar' },
+                            { title: 'LabEletro', pageName: 'QrPage', tabComponent: QrPage ,  icon: 'md-barcode' },
                             { title: 'Config', pageName: 'ConfigPage', tabComponent: ConfigPage ,  icon: 'settings' },
-                            ];
-                            
+                            ];                          
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.Frase = this.navParams.get("PassaporteView").Frase;
   }
 
   openPage(page: PageInterface) {
-
         this.nav.setRoot( page.tabComponent,  this.navParams);
   }
  
@@ -55,14 +52,14 @@ export class MenuPage {
  
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'primary';
+        return 'danger';
       }
       return 'green';
     }
  
     // Fallback needed when there is no active childnav (tabs not active)
     if (this.nav.getActive() && this.nav.getActive().name === page.pageName) {
-      return 'primary';
+      return 'danger';
     }
     return 'green' ;
   }

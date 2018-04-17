@@ -11,28 +11,26 @@
         <ion-icon name="menu"></ion-icon>
       </button>
       </ion-buttons>
-      <ion-title>Pesquisar QR Code</ion-title>
+      <ion-title><div class='textHeader'>LabEletro</div></ion-title>
     </ion-navbar>
   </ion-header>
 
   <ion-content padding>
-      <form (ngSubmit)="scanCode()" #registerForm="ngForm"  padding>
 
-          <ion-item>
-              <ion-label>ATIVO</ion-label>
-              <ion-select [(ngModel)]="Ativo" name="ativo" text-wrap required>
-              <ion-option [value]="item" *ngFor="let item of local" >{{item}}</ion-option>
-              </ion-select>
-          </ion-item>
+    <ion-label text-center><h4>Histórico de Equipamento</h4></ion-label>
+    <form (ngSubmit)="getEquipamento($event)" #registerForm="ngForm"  padding>
+        <ion-item>
+          <ion-label>SN</ion-label>
+            <ion-input type="text" [(ngModel)]="serialnumber" name= "sn"  required></ion-input>  
+            <button ion-button (click)="scanCode()" item-end>
+            <ion-icon  name="qr-scanner" item-center></ion-icon></button>
+        </ion-item>
+    <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Pesquisar</button>
+</form>
 
-      <button ion-button full icon-left type="submit" [disabled]="!registerForm.form.valid"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
-  </form>
-   
-    <ion-card *ngIf="scannedCode">
+<ion-card *ngIf="scannedCode">
       <ion-card-content>
         Result from Scan: {{ scannedCode }}
       </ion-card-content>
     </ion-card>
-
-
   </ion-content>

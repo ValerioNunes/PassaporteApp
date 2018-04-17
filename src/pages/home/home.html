@@ -1,28 +1,29 @@
 
 <ion-header>
-    <ion-navbar>
-      <ion-buttons start>
+    <ion-navbar class ='toolbar-background'>
+      <ion-buttons    start>
         <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon  name="menu"></ion-icon>
       </button>
       </ion-buttons>
-      <ion-title>Meu Passaporte</ion-title>
+      <ion-title><div class='textHeader' >Meu Passaporte</div></ion-title>
     </ion-navbar>
   </ion-header>
 
 <ion-content padding> 
 
-  <ion-list>
-            <ion-label text-center padding-top ><h3>Dados do Empregado</h3></ion-label>
-            <ion-item text-wrap padding-top> <h3>Nome: {{Empregado.Nome}} </h3></ion-item> 
-            <ion-item padding-top> <h3>Matrícula: {{Empregado.Id}} </h3></ion-item>      
-            <ion-item text-wrap padding-top> <h3>Supervisão: {{Empregado.Supervisao}}</h3></ion-item> 
-            <ion-item text-wrap padding-top> <h3>Gerência: {{Empregado.Gerencia}}</h3></ion-item> 
+ <ion-label text-center ><h4>Dados do Empregado</h4></ion-label>
+  <ion-list> 
+            
+            <ion-item text-wrap > <h3>Nome: {{Empregado.Nome}} </h3></ion-item> 
+            <ion-item > <h3>Matrícula: {{Empregado.Id}} </h3></ion-item>      
+            <ion-item text-wrap > <h3>Supervisão: {{Empregado.Supervisao}}</h3></ion-item> 
+            <ion-item text-wrap > <h3>Gerência: {{Empregado.Gerencia}}</h3></ion-item> 
     </ion-list>
 
-    
+    <ion-label text-center ><h4>RAC</h4></ion-label>    
+
     <ion-list>
-      <ion-label text-center padding-top><h2>RAC</h2></ion-label>
       <button ion-item *ngFor="let item of HistRac"  #slidingItem>
         <ion-item >
           <ion-icon class="iconForm"  *ngIf="getCor(item) == true" item-start name="ios-alarm" color="danger"></ion-icon>

@@ -18,10 +18,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class QrPage {
   qrData = null;
   createdCode = null;
-  scannedCode = null;
-  Ativo  =  '';
-  local = ['Equipamentos'];
 
+  serialnumber = '';
   constructor(private barcodeScanner: BarcodeScanner,public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
@@ -34,9 +32,14 @@ export class QrPage {
   
   scanCode() {
     this.barcodeScanner.scan().then(barcodeData => {
-      this.scannedCode = barcodeData.text;
+      this.serialnumber = barcodeData.text;
     }, (err) => {
         console.log('Error: ', err);
     });
   }
+
+  getEquipamento(event){
+
+  }
+
 }
